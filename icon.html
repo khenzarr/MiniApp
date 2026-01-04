@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon Generator - SNAKE RETRO on BASE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .canvas-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        canvas {
+            border: 1px solid #ddd;
+            margin: 10px;
+            background: #000;
+        }
+        .download-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 15px;
+            background: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .download-btn:hover {
+            background: #45a049;
+        }
+        .info {
+            text-align: center;
+            color: #666;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Icon Generator</h1>
+        <div class="canvas-container">
+            <div>
+                <h3>Icon (200x200)</h3>
+                <canvas id="iconCanvas" width="200" height="200"></canvas>
+                <a id="downloadIcon" class="download-btn" download="icon.png">Download icon.png</a>
+            </div>
+            <div>
+                <h3>Preview (600x400)</h3>
+                <canvas id="previewCanvas" width="600" height="400"></canvas>
+                <a id="downloadPreview" class="download-btn" download="preview.png">Download preview.png</a>
+            </div>
+        </div>
+        <div class="info">
+            <p>İndirilen dosyaları proje klasörüne taşıyın.</p>
+        </div>
+    </div>
+
+    <script>
+        // Icon çizimi (200x200)
+        const iconCanvas = document.getElementById('iconCanvas');
+        const iconCtx = iconCanvas.getContext('2d');
+        
+        // Arka plan
+        iconCtx.fillStyle = '#000';
+        iconCtx.fillRect(0, 0, 200, 200);
+        
+        // Yılan çizimi (basit)
+        iconCtx.fillStyle = '#fff';
+        const cellSize = 15;
+        const startX = 50;
+        const startY = 80;
+        
+        // Yılan gövdesi (eğri şeklinde)
+        for (let i = 0; i < 8; i++) {
+            iconCtx.fillRect(startX + i * cellSize, startY + Math.sin(i * 0.5) * 10, cellSize - 2, cellSize - 2);
+        }
+        
+        // Coin sembolü
+        iconCtx.fillStyle = '#fff';
+        iconCtx.fillRect(startX + 120, startY + 10, cellSize, cellSize);
+        iconCtx.fillStyle = '#000';
+        iconCtx.font = 'bold 10px Courier New';
+        iconCtx.textAlign = 'center';
+        iconCtx.textBaseline = 'middle';
+        iconCtx.fillText('$BTC', startX + 120 + cellSize / 2, startY + 10 + cellSize / 2);
+        
+        // Başlık
+        iconCtx.fillStyle = '#fff';
+        iconCtx.font = 'bold 16px Courier New';
+        iconCtx.textAlign = 'center';
+        iconCtx.fillText('SNAKE', 100, 30);
+        iconCtx.font = 'bold 12px Courier New';
+        iconCtx.fillText('RETRO', 100, 50);
+        
+        // Preview çizimi (600x400)
+        const previewCanvas = document.getElementById('previewCanvas');
+        const previewCtx = previewCanvas.getContext('2d');
+        
+        // Arka plan
+        previewCtx.fillStyle = '#000';
+        previewCtx.fillRect(0, 0, 600, 400);
+        
+        // Telefon çerçevesi efekti
+        previewCtx.fillStyle = '#1a1a1a';
+        previewCtx.fillRect(50, 50, 500, 300);
+        previewCtx.fillStyle = '#000';
+        previewCtx.fillRect(70, 70, 460, 260);
+        
+        // Oyun ekranı
+        const gridStartX = 100;
+        const gridStartY = 100;
+        const previewCellSize = 12;
+        
+        // Yılan çizimi
+        previewCtx.fillStyle = '#fff';
+        for (let i = 0; i < 15; i++) {
+            previewCtx.fillRect(
+                gridStartX + i * previewCellSize, 
+                gridStartY + Math.sin(i * 0.3) * 8, 
+                previewCellSize - 1, 
+                previewCellSize - 1
+            );
+        }
+        
+        // Birkaç coin
+        const coins = ['$BTC', '$ETH', '$SOL'];
+        coins.forEach((coin, idx) => {
+            const coinX = gridStartX + 180 + (idx * 80);
+            const coinY = gridStartY + 50 + (idx % 2) * 40;
+            previewCtx.fillStyle = '#fff';
+            previewCtx.fillRect(coinX, coinY, previewCellSize, previewCellSize);
+            previewCtx.fillStyle = '#000';
+            previewCtx.font = 'bold 8px Courier New';
+            previewCtx.textAlign = 'center';
+            previewCtx.textBaseline = 'middle';
+            previewCtx.fillText(coin, coinX + previewCellSize / 2, coinY + previewCellSize / 2);
+        });
+        
+        // Başlık
+        previewCtx.fillStyle = '#fff';
+        previewCtx.font = 'bold 32px Courier New';
+        previewCtx.textAlign = 'center';
+        previewCtx.fillText('SNAKE RETRO on BASE', 300, 50);
+        previewCtx.font = 'bold 20px Courier New';
+        previewCtx.fillText('Eat crypto coins to grow!', 300, 380);
+        
+        // İndirme fonksiyonları
+        document.getElementById('downloadIcon').addEventListener('click', function(e) {
+            e.preventDefault();
+            const link = document.createElement('a');
+            link.download = 'icon.png';
+            link.href = iconCanvas.toDataURL('image/png');
+            link.click();
+        });
+        
+        document.getElementById('downloadPreview').addEventListener('click', function(e) {
+            e.preventDefault();
+            const link = document.createElement('a');
+            link.download = 'preview.png';
+            link.href = previewCanvas.toDataURL('image/png');
+            link.click();
+        });
+    </script>
+</body>
+</html>
+

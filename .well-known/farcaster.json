@@ -1,0 +1,27 @@
+{
+  "accountAssociation": {
+    "header": "[FARCASTER'DAN ALINACAK]",
+    "payload": "[FARCASTER'DAN ALINACAK]",
+    "signature": "[FARCASTER'DAN ALINACAK]"
+  },
+  "frame": {
+    "version": "1",
+    "name": "SNAKE RETRO on BASE",
+    "subtitle": "Retro Snake game with crypto coins",
+    "description": "Classic Snake game with a retro aesthetic. Eat crypto coins ($BTC, $ETH, $SOL, $LTC) to grow your snake. Endless gameplay on Base network.",
+    "iconUrl": "https://[DOMAIN]/icon.png",
+    "homeUrl": "https://[DOMAIN]",
+    "imageUrl": "https://[DOMAIN]/preview.png",
+    "splashImageUrl": "https://[DOMAIN]/icon.png",
+    "splashBackgroundColor": "#000000",
+    "primaryCategory": "games",
+    "tags": ["game", "arcade", "farcaster", "snake"],
+    "tagline": "Retro Snake with crypto coins",
+    "heroImageUrl": "https://[DOMAIN]/preview.png",
+    "screenshotUrls": ["https://[DOMAIN]/preview.png"],
+    "ogTitle": "SNAKE RETRO on BASE",
+    "ogDescription": "Classic Snake game with crypto coins. Endless retro fun!",
+    "ogImageUrl": "https://[DOMAIN]/preview.png"
+  }
+}
+

@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.phone-frame {
+    background: #1a1a1a;
+    border: 8px solid #333;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.phone-screen {
+    background: #000;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 10px;
+}
+
+.header h1 {
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.score {
+    font-size: 14px;
+    color: #fff;
+}
+
+#gameCanvas {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid #fff;
+    background: #000;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+.controls {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.control-row {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.control-btn {
+    width: 60px;
+    height: 60px;
+    background: #333;
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.control-btn:active {
+    background: #555;
+    transform: scale(0.95);
+}
+
+.control-btn:hover {
+    background: #444;
+}
+
+.info {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 12px;
+    color: #aaa;
+}
+
+@media (max-width: 480px) {
+    .game-container {
+        padding: 10px;
+    }
+    
+    .phone-frame {
+        padding: 10px;
+        border-width: 4px;
+    }
+    
+    .phone-screen {
+        padding: 10px;
+    }
+    
+    .header h1 {
+        font-size: 16px;
+    }
+    
+    .control-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+

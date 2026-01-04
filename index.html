@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="fc:frame" content="vNext">
+    <meta name="base:app_id" content="[SONRA EKLENECEK]">
+    <title>SNAKE RETRO on BASE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="phone-frame">
+            <div class="phone-screen">
+                <div class="header">
+                    <h1>SNAKE RETRO</h1>
+                    <div class="score">Score: <span id="score">0</span></div>
+                </div>
+                <canvas id="gameCanvas"></canvas>
+                <div class="controls">
+                    <div class="control-row">
+                        <button class="control-btn" id="btnUp">↑</button>
+                    </div>
+                    <div class="control-row">
+                        <button class="control-btn" id="btnLeft">←</button>
+                        <button class="control-btn" id="btnDown">↓</button>
+                        <button class="control-btn" id="btnRight">→</button>
+                    </div>
+                </div>
+                <div class="info">
+                    <p>Eat crypto coins to grow!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="game.js"></script>
+</body>
+</html>
+
